@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Store - Fashion & Accessories</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>NEON STORE</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#offers">Offers</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#" onclick="showOrderList()">Shop Orders</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" onclick="showCategoryPage('fashion')">Fashion</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="search-btn" onclick="toggleSearch()">🔍</button>
+                <button class="account-btn" onclick="toggleAccount()">👤 Account</button>
+                <button class="wishlist-btn" onclick="toggleWishlist()">♡ <span id="wishlistCount">0</span></button>
+                <button class="cart-btn" onclick="toggleCart()">🛒 <span id="cartCount">0</span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <input type="text" placeholder="Search for clothes, accessories..." id="searchInput" onkeyup="performSearch()">
+            <button onclick="performSearch()">🔍</button>
+            <button onclick="toggleSearch()">×</button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Shop Smart. Shine Bright. Only at Neon Store.</h2>
+            <p>Welcome to Neon Store, your one-stop destination for trendy, affordable, and high-quality products. Whether you're searching for fashion essentials, modern gadgets, or lifestyle accessories — we've got it all in one place.</p>
+            <p class="mission-text">Our mission is simple: to make online shopping effortless, fun, and trustworthy. With secure payments, fast delivery, and customer-first service, Neon Store ensures every purchase is a bright experience!</p>
+            <div class="cta-buttons">
+                <button class="cta-btn primary" onclick="scrollToProducts()">✨ Explore the Latest Trends Now</button>
+                <button class="cta-btn secondary" onclick="scrollToProducts()">🛍 Grab Your Deal Before It's Gone!</button>
+                <button class="cta-btn tertiary" onclick="scrollToProducts()">🚀 Shop Today & Get Fast Delivery</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <p class="category-main-tagline">"New Arrivals, New You ✨"</p>
+            <div class="category-grid">
+                <div class="category-card" onclick="showCategoryPage('fashion')">
+                    <div class="category-image">👗</div>
+                    <h3>Fashion</h3>
+                    <p class="category-tagline">"Style That Speaks — Discover the Trend You Deserve."</p>
+                    <p>Premium fabrics, vibrant designs, sizes for everyone</p>
+                </div>
+                <div class="category-card" onclick="showCategoryPage('electronics')">
+                    <div class="category-image">💻</div>
+                    <h3>Electronics</h3>
+                    <p class="category-tagline">"Smart Choices for a Smarter You."</p>
+                    <p>Latest gadgets with quality and warranty</p>
+                </div>
+                <div class="category-card" onclick="showCategoryPage('home')">
+                    <div class="category-image">🏠</div>
+                    <h3>Home & Lifestyle</h3>
+                    <p class="category-tagline">"Brighten Every Corner of Your Home."</p>
+                    <p>Modern design meets practical comfort</p>
+                </div>
+                <div class="category-card" onclick="showCategoryPage('beauty')">
+                    <div class="category-image">💄</div>
+                    <h3>Beauty & Care</h3>
+                    <p class="category-tagline">"Glow Inside Out — Because You Deserve It."</p>
+                    <p>Skincare and wellness essentials</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us" id="about">
+        <div class="container">
+            <div class="about-header">
+                <h2>Welcome to Neon Store — Where Style Meets Affordability!</h2>
+                <p class="about-intro">At Neon Store, we believe that shopping should be more than just a transaction — it should be an experience full of convenience, excitement, and trust. Our online platform brings together the latest trends in fashion, electronics, and lifestyle products, all at prices that make sense.</p>
+                <p class="about-intro">We're passionate about offering premium-quality products, secure payments, and quick doorstep delivery — because your satisfaction is our top priority. Whether you're a student, professional, or trend-lover, Neon Store is here to light up your shopping journey with style and confidence.</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="brand-story">
+                    <h3>🌟 The Spark Behind Neon Store</h3>
+                    <p>Neon Store was born from a simple idea — to make online shopping smarter, smoother, and more reliable for everyone. We noticed how people often struggled to find trusted stores that combine variety, affordability, and style — so we created one.</p>
+                    <p>Starting as a small vision, Neon Store has grown into a trusted digital marketplace that connects customers with products they'll love — all backed by honesty, transparency, and a customer-first approach. Every item we feature is carefully selected to ensure it brings real value to your life.</p>
+                </div>
+                
+                <div class="mission-vision">
+                    <div class="mission">
+                        <h3>🎯 Our Mission</h3>
+                        <p>To make quality, trendy, and affordable products accessible to everyone through a seamless online shopping experience.</p>
+                    </div>
+                    <div class="vision">
+                        <h3>🚀 Our Vision</h3>
+                        <p>To become one of the most trusted and customer-loved online stores by delivering joy, style, and value with every order.</p>
+                    </div>
+                </div>
+                
+                <div class="why-choose">
+                    <h3>💎 Why Choose Neon Store</h3>
+                    <div class="features-grid">
+                        <div class="feature">
+                            <span class="feature-icon">✅</span>
+                            <p>Affordable prices without compromising quality</p>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🚚</span>
+                            <p>Fast and reliable doorstep delivery</p>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🔒</span>
+                            <p>Secure payment and easy return policies</p>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">💬</span>
+                            <p>Dedicated customer support team</p>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🌍</span>
+                            <p>Trendy, high-quality products for every lifestyle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="products-header">
+                <h2>"Hot Deals You Can't Miss 🔥"</h2>
+                <p class="tagline">"Everything You Need. Just a Click Away."</p>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+                    <button class="filter-btn" onclick="filterProducts('fashion')">Fashion</button>
+                    <button class="filter-btn" onclick="filterProducts('electronics')">Electronics</button>
+                    <button class="filter-btn" onclick="filterProducts('home')">Home & Lifestyle</button>
+                    <button class="filter-btn" onclick="filterProducts('beauty')">Beauty & Care</button>
+                </div>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers & Sale Section -->
+    <section class="offers-sale" id="offers">
+        <div class="container">
+            <div class="offers-header">
+                <h2>Bright Deals. Bigger Smiles. Shop the Neon Way!</h2>
+                <p class="offers-intro">Welcome to the Neon Store Offers Zone — where shopping meets savings! ✨</p>
+                <p class="offers-description">From exclusive fashion steals to tech must-haves at unbeatable prices, this is your chance to grab everything you love at a fraction of the cost. Whether you're shopping for yourself or gifting someone special, Neon Store makes it easy to shine bright without breaking your budget.</p>
+                <p class="offers-urgency">Don't wait — our offers are live for a limited time only. Shop now and experience the joy of smart savings, fast delivery, and trusted quality — only at Neon Store.</p>
+            </div>
+            
+            <div class="offers-grid">
+                <div class="offer-card flash-sale">
+                    <div class="offer-badge">⚡ FLASH SALE</div>
+                    <h3>Limited-Time Flash Sale</h3>
+                    <p class="offer-tagline">"Deals That Glow Like Neon 💥"</p>
+                    <p class="offer-description">Grab It Before It's Gone!</p>
+                    <div class="offer-discount">UP TO 70% OFF</div>
+                    <button class="offer-cta" onclick="filterProducts('all')">🎁 Grab Your Offer Now</button>
+                </div>
+                
+                <div class="offer-card festive-sale">
+                    <div class="offer-badge">🎉 FESTIVE SPECIAL</div>
+                    <h3>Celebrate in Style</h3>
+                    <p class="offer-tagline">"Your Favourite Brands, Now on Sale"</p>
+                    <p class="offer-description">Upto 70% OFF this Festive Season!</p>
+                    <div class="offer-discount">FLAT 50% OFF</div>
+                    <button class="offer-cta" onclick="filterProducts('women')">🛒 Don't Miss Out — Shop Before It Ends</button>
+                </div>
+                
+                <div class="offer-card combo-deals">
+                    <div class="offer-badge">💫 COMBO OFFER</div>
+                    <h3>Buy More, Save More</h3>
+                    <p class="offer-tagline">"Unbox Joy. Unwrap Savings."</p>
+                    <p class="offer-description">Get Extra Discounts on Combo Offers!</p>
+                    <div class="offer-discount">EXTRA 30% OFF</div>
+                    <button class="offer-cta" onclick="filterProducts('accessories')">✨ Explore the Biggest Discounts of the Season</button>
+                </div>
+                
+                <div class="offer-card member-exclusive">
+                    <div class="offer-badge">💳 EXCLUSIVE</div>
+                    <h3>New Member Special</h3>
+                    <p class="offer-tagline">"Shop Bright. Pay Light."</p>
+                    <p class="offer-description">Sign Up & Get ₹200 OFF on Your First Purchase!</p>
+                    <div class="offer-discount">₹200 OFF</div>
+                    <button class="offer-cta" onclick="showSignupOffer()">🎁 Claim Your Welcome Offer</button>
+                </div>
+            </div>
+            
+            <div class="offers-banner">
+                <h3>"Because You Deserve the Best Deals!"</h3>
+                <p>Flat 50% OFF on Selected Categories — Fashion, Accessories & More!</p>
+                <button class="banner-cta" onclick="scrollToProducts()">Shop All Offers</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Unbox Happiness with Every Order</h2>
+            <p>Your Style, Your Store — Neon Store. Join thousands of happy customers and get exclusive deals delivered to your inbox!</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Enter your email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Support Section -->
+    <section class="contact-support" id="contact">
+        <div class="container">
+            <div class="contact-header">
+                <h2>We'd love to hear from you! 💬</h2>
+                <p class="contact-intro">At Neon Store, your satisfaction is our top priority. Whether you have a question about your order, need help with a product, or just want to share feedback — our support team is always ready to assist.</p>
+                <p class="contact-note">Feel free to reach out using the details below, and we'll get back to you as soon as possible.</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-details">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">🏠</span>
+                        <div class="contact-text">
+                            <strong>Store Name:</strong> Neon Store
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">👩‍💼</span>
+                        <div class="contact-text">
+                            <strong>Owner:</strong> Pragya Tiwari
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div class="contact-text">
+                            <strong>Email:</strong> pragyakumari0401@gmail.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div class="contact-text">
+                            <strong>Customer Support:</strong> +91 98765 43210
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🌐</span>
+                        <div class="contact-text">
+                            <strong>Website:</strong> www.neonstore.shop
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🕒</span>
+                        <div class="contact-text">
+                            <strong>Support Hours:</strong> Monday – Saturday | 10:00 AM – 7:00 PM
+                        </div>
+                    </div>
+                    
+                    <div class="quick-support">
+                        <h4>Quick Support Message</h4>
+                        <p>Have a query? Drop us a message anytime — our friendly support team will respond within 24 hours.</p>
+                        <p class="support-tagline">💌 We're here to make your Neon Store experience smooth, simple, and satisfying.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3>Frequently Asked Questions (FAQs)</h3>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <h4>Q1. How long does delivery take?</h4>
+                            <p>Most orders are delivered within 4–7 business days, depending on your location. You'll receive a tracking link once your order is shipped.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h4>Q2. What payment methods are accepted?</h4>
+                            <p>We accept UPI, debit/credit cards, net banking, and cash on delivery (where available). All transactions are 100% secure.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h4>Q3. Can I return or exchange a product?</h4>
+                            <p>Yes! You can return or exchange your item within 7 days of delivery if it's unused and in original packaging. Just contact our support team for easy assistance.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h4>Q4. How do I track my order?</h4>
+                            <p>After dispatch, you'll receive an email and SMS with a tracking link. You can also log in to your Neon Store account and view order status anytime.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h4>Q5. How can I contact customer service?</h4>
+                            <p>You can reach us directly via email at pragyakumari0401@gmail.com or call us at +91 98765 43210 during support hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-actions">
+                <button class="contact-btn email" onclick="contactViaEmail()">📧 Send Email</button>
+                <button class="contact-btn phone" onclick="contactViaPhone()">📞 Call Support</button>
+                <button class="contact-btn whatsapp" onclick="contactViaWhatsApp()">📱 WhatsApp Chat</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews & Testimonials Section -->
+    <section class="reviews-testimonials" id="reviews">
+        <div class="container">
+            <div class="reviews-header">
+                <h2>See what our happy customers are saying!</h2>
+                <p class="reviews-tagline">"Loved by Thousands of Happy Shoppers 💖"</p>
+                <p class="reviews-intro">At Neon Store, we value trust and transparency. Every review shared here comes from real customers who've experienced our products and service first-hand. Their satisfaction is what keeps us glowing brighter every day ✨</p>
+            </div>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Loved my first order from Neon Store! The product quality was beyond my expectations, and delivery was super fast. Definitely shopping again soon!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">👩</div>
+                        <div class="author-info">
+                            <strong>Aditi Sharma</strong>
+                            <span>Delhi</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"I bought a smartwatch and a pair of wireless earbuds — both are excellent. The packaging was neat, and customer support helped me with quick updates. Highly recommended!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">👨</div>
+                        <div class="author-info">
+                            <strong>Rahul Mehta</strong>
+                            <span>Pune</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Affordable, trendy, and reliable — exactly what I was looking for. Neon Store has become my go-to place for online shopping."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">👩</div>
+                        <div class="author-info">
+                            <strong>Sneha Verma</strong>
+                            <span>Lucknow</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Great prices and good quality products. The website is easy to use, and I loved the offers section. Totally worth it!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">👨</div>
+                        <div class="author-info">
+                            <strong>Arjun Patel</strong>
+                            <span>Mumbai</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Customer service is so polite and responsive. I had an issue with size, and they managed my exchange quickly. Amazing experience overall!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">👩</div>
+                        <div class="author-info">
+                            <strong>Kavita Singh</strong>
+                            <span>Jaipur</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card featured-review">
+                    <div class="review-badge">🏆 FEATURED</div>
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Been shopping here for 6 months now. Quality is consistent, prices are fair, and they always have the latest trends. Neon Store never disappoints!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">👩</div>
+                        <div class="author-info">
+                            <strong>Priya Gupta</strong>
+                            <span>Bangalore</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="reviews-footer">
+                <h3>"Real Stories. Real Smiles."</h3>
+                <p>"Your Trust, Our Motivation."</p>
+                <p class="reviews-note">Because Every Review Matters ❤️</p>
+                <button class="reviews-cta" onclick="scrollToProducts()">Shop Now & Join Our Happy Customers</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Neon Store</h3>
+                    <p><strong>Trendy. Reliable. Neon Bright.</strong></p>
+                    <p>Born from a vision to bring trendy, affordable products to everyone's doorstep. We're your reliable online store offering variety, style, and unmatched affordability with customer-first service.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#" onclick="openHelp()">Help & FAQ</a></li>
+                        <li><a href="#" onclick="openSupport()">Contact Us</a></li>
+                        <li><a href="#" onclick="openAbout()">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Policies</h4>
+                    <ul>
+                        <li><a href="#" onclick="showReturnPolicy()">Return & Refund</a></li>
+                        <li><a href="#" onclick="showPrivacyPolicy()">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showTerms()">Terms of Service</a></li>
+                        <li><a href="#" onclick="showOrderTracking()">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>👩💼 Owner: Pragya Tiwari</p>
+                    <p>📞 +91 98765 43210</p>
+                    <p>✉️ pragyakumari0401@gmail.com</p>
+                    <p>🕒 Mon-Sat: 10 AM - 7 PM</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Wishlist Sidebar -->
+    <div class="wishlist-sidebar" id="wishlistSidebar">
+        <div class="wishlist-header">
+            <h3>Your Favorites, Saved for Later!</h3>
+            <button class="close-wishlist" onclick="toggleWishlist()">×</button>
+        </div>
+        <div class="wishlist-intro">
+            <p>Add products you love to your Wishlist — so you never lose track of your favorite finds.</p>
+            <p>Sign in to your account to save and access your Wishlist from any device, anytime.</p>
+        </div>
+        <div class="wishlist-items" id="wishlistItems">
+            <!-- Wishlist items will be dynamically loaded here -->
+        </div>
+        <div class="wishlist-footer">
+            <button class="wishlist-login" onclick="toggleAccount()">Sign In to Save Wishlist</button>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content product-detail-modal">
+            <div class="modal-header">
+                <h3 id="productDetailName">Product Details</h3>
+                <button class="close-modal" onclick="closeProductDetail()">×</button>
+            </div>
+            <div class="product-detail-content">
+                <div class="product-detail-image">
+                    <div class="main-product-image" id="mainProductImage">👗</div>
+                    <button class="wishlist-heart" id="wishlistHeart" onclick="toggleProductWishlist()">♡</button>
+                </div>
+                <div class="product-detail-info">
+                    <h2 id="productDetailTitle">Product Name</h2>
+                    <p class="product-summary" id="productSummary">Short product summary will appear here.</p>
+                    <p class="product-detail-price" id="productDetailPrice">₹0</p>
+                    
+                    <div class="product-highlights" id="productHighlights">
+                        <h4>Key Features:</h4>
+                        <ul id="highlightsList">
+                            <!-- Product highlights will be loaded here -->
+                        </ul>
+                    </div>
+                    
+                    <p class="product-detail-description" id="productDetailDescription">Product description will appear here.</p>
+                    
+                    <div class="size-selector" id="sizeSelector" style="display:none;">
+                        <h4>Size:</h4>
+                        <div class="size-options">
+                            <button class="size-btn">XS</button>
+                            <button class="size-btn">S</button>
+                            <button class="size-btn">M</button>
+                            <button class="size-btn">L</button>
+                            <button class="size-btn">XL</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="add-to-cart-detail" id="addToCartDetail">Add to Cart</button>
+                        <button class="buy-now-btn" id="buyNowBtn">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart — Ready to Shine!</h3>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-intro">
+            <p>Review your selected items before checkout. You can adjust quantities, remove products, or continue shopping to explore more deals.</p>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div class="cart-actions">
+            <div class="discount-section">
+                <input type="text" placeholder="Enter discount code" id="discountCode">
+                <button onclick="applyDiscount()">Apply Discount Code</button>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <p>Your cart total will update automatically — and don't forget to check for coupon codes!</p>
+                <strong>Total: ₹<span id="cartTotal">0</span></strong>
+            </div>
+            <div class="cart-buttons">
+                <button class="continue-shopping" onclick="toggleCart()">Continue Shopping</button>
+                <button class="checkout-btn" onclick="goToCheckout()">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Almost There — Complete Your Order Securely</h3>
+                <button class="close-modal" onclick="closeCheckout()">×</button>
+            </div>
+            <div class="checkout-intro">
+                <p>Review your cart, confirm your delivery address, and select your preferred payment method.</p>
+                <p>We ensure 100% secure transactions and encrypted payment gateways to protect your data at every step.</p>
+            </div>
+            <form class="checkout-form" id="checkoutForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea id="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <select id="paymentMethod" required onchange="showPaymentDetails()">
+                        <option value="">Select Payment Method</option>
+                        <option value="card">Credit/Debit Card</option>
+                        <option value="upi">UPI Payment</option>
+                        <option value="cod">Cash on Delivery</option>
+                    </select>
+                </div>
+                <div class="order-summary">
+                    <h4>Order Summary</h4>
+                    <div class="summary-items" id="summaryItems"></div>
+                    <div class="summary-total">
+                        <strong>Total: ₹<span id="summaryTotal">0</span></strong>
+                    </div>
+                </div>
+                <button type="submit" class="place-order-btn">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Category Page Modal -->
+    <div class="modal" id="categoryModal">
+        <div class="modal-content category-modal">
+            <div class="modal-header">
+                <h3 id="categoryTitle">Category</h3>
+                <button class="close-modal" onclick="closeCategoryPage()">×</button>
+            </div>
+            <div class="category-page-content">
+                <div class="category-hero">
+                    <h2 id="categoryTagline">Category Tagline</h2>
+                    <p id="categoryDescription">Category description will appear here.</p>
+                </div>
+                <div class="category-products">
+                    <h3>"Shop Smart. Live Bright."</h3>
+                    <div class="category-products-grid" id="categoryProductsGrid">
+                        <!-- Category products will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login/Sign Up Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content login-modal">
+            <div class="modal-header">
+                <h3 id="loginTitle">Welcome Back to Neon Store</h3>
+                <button class="close-modal" onclick="closeLogin()">×</button>
+            </div>
+            <div class="login-content">
+                <p class="login-subtitle">Log in to continue your bright shopping journey.</p>
+                
+                <div class="login-form" id="loginForm">
+                    <h4>Login to Your Account</h4>
+                    <p>Enter your registered email and password to access your Neon Store account.</p>
+                    <form>
+                        <input type="email" placeholder="Email Address" required>
+                        <input type="password" placeholder="Password" required>
+                        <button type="submit" class="login-btn">🔑 Login Now</button>
+                    </form>
+                    <p class="forgot-password">Forgot your password? No worries — <a href="#" onclick="showForgotPassword()">Reset Password</a> and we'll send you a secure link instantly.</p>
+                    <p class="switch-form">New to Neon Store? <a href="#" onclick="showSignupForm()">Create Account</a></p>
+                </div>
+                
+                <div class="signup-form" id="signupForm" style="display:none;">
+                    <h4>Create Your Free Account</h4>
+                    <p>New to Neon Store? Create your free account in seconds and enjoy:</p>
+                    <ul class="signup-benefits">
+                        <li>• Faster checkout</li>
+                        <li>• Order tracking</li>
+                        <li>• Exclusive discounts</li>
+                        <li>• Personalized recommendations</li>
+                    </ul>
+                    <form>
+                        <input type="text" placeholder="Full Name" required>
+                        <input type="email" placeholder="Email Address" required>
+                        <input type="password" placeholder="Create Password" required>
+                        <input type="tel" placeholder="Phone Number" required>
+                        
+                        <h5>Delivery Address</h5>
+                        <input type="text" placeholder="House No./Building Name" required>
+                        <input type="text" placeholder="Street/Area/Locality" required>
+                        <input type="text" placeholder="City" required>
+                        <input type="text" placeholder="State" required>
+                        <input type="text" placeholder="PIN Code" required>
+                        <input type="text" placeholder="Landmark (Optional)">
+                        
+                        <button type="submit" class="signup-btn">🆕 Create Account</button>
+                    </form>
+                    <p class="switch-form">Already have an account? <a href="#" onclick="showLoginForm()">Login Here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- My Account Modal -->
+    <div class="modal" id="accountModal">
+        <div class="modal-content account-modal">
+            <div class="modal-header">
+                <h3>Hello <span id="userName">Guest</span>! Welcome to Your Account.</h3>
+                <button class="close-modal" onclick="closeAccount()">×</button>
+            </div>
+            <div class="account-content">
+                <div class="account-menu">
+                    <button class="account-menu-btn active" onclick="showAccountSection('orders')">My Orders</button>
+                    <button class="account-menu-btn" onclick="showAccountSection('profile')">My Profile</button>
+                    <button class="account-menu-btn" onclick="showAccountSection('addresses')">Saved Addresses</button>
+                    <button class="account-menu-btn" onclick="showAccountSection('payments')">Payment Options</button>
+                    <button class="account-menu-btn" onclick="showAccountSection('support')">Support Tickets</button>
+                    <button class="account-menu-btn logout" onclick="logout()">Logout</button>
+                </div>
+                
+                <div class="account-sections">
+                    <div class="account-section" id="ordersSection">
+                        <h4>My Orders</h4>
+                        <p>Track all current and past purchases.</p>
+                        <div class="orders-list">
+                            <div class="order-item">
+                                <p><strong>Order #NE001</strong> - ₹2,499</p>
+                                <p>Status: <span class="status delivered">✓ Delivered</span></p>
+                                <button class="track-btn" onclick="showOrderTracking('NE001')">Track Order</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="account-section" id="profileSection" style="display:none;">
+                        <h4>My Profile</h4>
+                        <p>Update your name, address, and contact details.</p>
+                        <form class="profile-form">
+                            <input type="text" placeholder="Full Name" value="Guest User">
+                            <input type="email" placeholder="Email" value="guest@example.com">
+                            <input type="tel" placeholder="Phone" value="+91 98765 43210">
+                            <button type="submit" class="update-btn">Update Profile</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Tracking Modal -->
+    <div class="modal" id="trackingModal">
+        <div class="modal-content tracking-modal">
+            <div class="modal-header">
+                <h3>Track Your Order in Real Time 🚚</h3>
+                <button class="close-modal" onclick="closeTracking()">×</button>
+            </div>
+            <div class="tracking-content">
+                <p>Enter your order ID or registered email to check the live status of your delivery.</p>
+                <p>Stay updated with each step — from packaging to shipping and final delivery at your doorstep.</p>
+                
+                <div class="tracking-input">
+                    <input type="text" placeholder="Enter Order ID (e.g., NE001)" id="trackingInput">
+                    <button onclick="trackOrder()">Track Order</button>
+                </div>
+                
+                <div class="tracking-status" id="trackingStatus" style="display:none;">
+                    <h4>Order Status: #NE001</h4>
+                    <div class="status-timeline">
+                        <div class="status-step completed">
+                            <span class="status-icon">✅</span>
+                            <div class="status-info">
+                                <strong>Order Confirmed</strong>
+                                <p>Your order has been placed successfully</p>
+                            </div>
+                        </div>
+                        <div class="status-step completed">
+                            <span class="status-icon">📦</span>
+                            <div class="status-info">
+                                <strong>Packed & Shipped</strong>
+                                <p>Your order is on its way</p>
+                            </div>
+                        </div>
+                        <div class="status-step active">
+                            <span class="status-icon">🚚</span>
+                            <div class="status-info">
+                                <strong>Out for Delivery</strong>
+                                <p>Your order will arrive today</p>
+                            </div>
+                        </div>
+                        <div class="status-step">
+                            <span class="status-icon">🎉</span>
+                            <div class="status-info">
+                                <strong>Delivered</strong>
+                                <p>Order delivered successfully</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order List Modal -->
+    <div class="modal" id="orderListModal">
+        <div class="modal-content order-list-modal">
+            <div class="modal-header">
+                <h3>📦 Your Order History</h3>
+                <button class="close-modal" onclick="closeOrderList()">×</button>
+            </div>
+            <div class="order-list-content">
+                <div class="order-list-header">
+                    <p>Track all your orders, view details, and manage returns/exchanges easily.</p>
+                    <div class="order-filters">
+                        <button class="filter-btn active" onclick="filterOrders('all')">All Orders</button>
+                        <button class="filter-btn" onclick="filterOrders('delivered')">Delivered</button>
+                        <button class="filter-btn" onclick="filterOrders('pending')">Pending</button>
+                        <button class="filter-btn" onclick="filterOrders('cancelled')">Cancelled</button>
+                    </div>
+                </div>
+                <div class="orders-container" id="ordersContainer">
+                    <!-- Orders will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script></script>
+</body>
+</html>
